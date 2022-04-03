@@ -1,3 +1,4 @@
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -12,22 +13,8 @@
  *
  *= require_tree .
  *= require_self
- */
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
-  *= require font_awesome5_webfont
+ *= require font_awesome5
+
  */
 
  body {
@@ -126,14 +113,19 @@
     grid-area: 2 / 2 / 3 / 3;
     margin-top: 20px;
   }
-
+  .user-name {
+    color: rgb(66, 103, 178) !important;
+    font-weight: bold;
+  }
   .user-posts {
     grid-area: 3 / 3 / 4 / 4;
     width: 171%;
     margin-left: -170px;
     margin-top: 12px;
   }
-
+  .post-header {
+    position: relative;
+  }
 
   .new-post img {
     width: 50px;
@@ -287,4 +279,19 @@
   .like-button:hover, .comment-button:hover {
     background-color: rgb(246, 247, 249) !important;
   }
+  .alert {
+    grid-area: 3 / 3 / 4 / 4 ;
+    /* margin-top: 100px; */
+    margin-left: 10px;
+    font-size: 20px;
+    /* color: darkred; */
+  }
   
+  /* .flash {
+    padding-top: 6px;
+    text-align: center;
+  }
+
+.post-failure {
+  color: darkred;
+} */

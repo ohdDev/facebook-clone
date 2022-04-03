@@ -1,3 +1,53 @@
+
+
+   
+<div class="posts">
+<div class = "new-post">
+
+  <div class="new-post-top">
+    <span>Make Post</span>
+  </div>
+
+ <%= form_for(@post, html: {multipart: true}) do |f| %>
+  
+
+    <%= f.text_area :content, rows: "3", placeholder: "What's on your mind, #{current_user.first_name}?" %><br/>
+    <%= f.label :image, fa_icon('image', type: :solid, text: "Photo", color: 'rgb(66, 103, 178)'), class: 'photo-label' %><br/>
+    <%= f.file_field :image, class: 'post-photo' %><br/>
+    <%= f.submit "Post" %>
+  <% end %>
+    <% if flash[:post_success] %>
+    <div class="flash post-success"><%= flash[:post_success] %></div>
+  <% elsif flash[:post_failure] %>
+    <div class="flash post-failure"><%= flash[:post_failure] %></div>
+  <% end %>
+</div>
+<% @posts.each do |post| %>
+  <div class="post">
+    
+    <p class="post-header">
+    <span>
+      <%= link_to "#{current_user.first_name}", current_user.first_name, class: "user-name" %>
+    </span>
+     <%= link_to distance_of_time_in_words(Time.now, post.created_at)+ ' ago', post, class: 'timestamp' %>
+      <% if current_user.id == post.user_id %>
+        <span class="edit-delete-post">
+          <%= link_to 'Edit Post', edit_post_path(post) %>
+          <%= link_to 'Delete', post, method: :delete, data: {confirm: "Are you sure?"} %>
+        </span>
+      <% end %>
+       </p>
+
+  <p class="post-content">
+      <%= post.content %><br/>
+   
+        <%= image_tag(post.image, size: '300x300') %><br/>
+
+    </p>
+     </div>
+      <% end %>
+   
+
 <p style="color: green"><%= notice %></p>
 
 <h1>Posts</h1>
