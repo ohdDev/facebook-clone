@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   def index
     @post = Post.new
     @posts = Post.all
+    @comment = Comment.new
   end
 
   # GET /posts/1 or /posts/1.json

@@ -286,7 +286,24 @@
     font-size: 20px;
     /* color: darkred; */
   }
-  
+  .new_comment {
+    margin-top: 10px;
+  }
+  .edit-delete-comment {
+    position: absolute;
+    right: -60px;
+    /* margin-right: 5%; */
+    font-size: 10px;
+    color: rgb(90,90,90);
+  }
+  .comment {
+    position: relative;
+    width: 72% !important;
+    margin-left: 25px !important;
+    padding: 10px 10px 5px 10px !important;
+    border-radius: 15px;
+    background-color: rgb(230, 235, 238);
+  }
   /* .flash {
     padding-top: 6px;
     text-align: center;
