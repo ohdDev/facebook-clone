@@ -1,15 +1,314 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #e5e5e5;
+}
+
+.form1{
+    height: 350px;
+    width: 400px;
+    background-color: #ffff;
+    position: absolute;
+    transform: translate(-70%,-45%);
+    top: 45%;
+    left: 70%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 20px #E8E8E8;
+    padding: 20px 55px;    
+}
+.form1 *{
+    font-family: 'Poppins',sans-serif;
+    color: #373A40;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+.field1{
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 6px;
+    border: 1px solid #DDDDDD;
+    padding: 13px 6px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 300;
+}
+::placeholder{
+    color: #BBBBBB;
+}
+.button-feild1{
+    margin-left: 125px;
+}
+
+.classy1{
+    color:black;
+    width:270px;
+}
+.actions1 .SignUp-btn1{
+    margin-top: 8px;
+    margin-left: 50px;
+    width: 100%;
+    background-color: #37CF32;
+    color: #ffffff;
+    padding: 10px 60px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.actions1 .SignUp-btn1:hover{
+    background-color: #2DA828;
+    text-decoration: none;
+    color: #ffffff;
+}
+.lineBreak1{
+    align-items: center;
+    border-bottom: 1px solid #dadde1;
+    display: flex;
+    margin: 20px 16px;
+    text-align: center;
+}
+.actions1 .SignIn-btn1{
+    margin-top: 10px;
+    margin-left: 30px;
+    text-decoration: none;
+    width: 80%;
+    background-color: #5890FF;
+    color: #ffffff;
+    padding: 10px 72px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.actions1 .SignIn-btn1:hover{
+    background-color: #1877F2;
+}
+.form1 a{
+    color: #1877F2;
+    margin-left: 40px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.Sign-in-fo{
+    transform: translate(-60%,100%);
+    width: 1700px;
+    top: 90%;
+    left: 30%;
+    display: block;
+    text-align: center;
+    padding: 25px;
+    background-color: white;
+    color: black;
+}
+.Sign-in-fo a{
+    padding-top: 30px;
+    text-align: center;
+    color: #898B8A; 
+    text-decoration: none;
+}
+.Sign-in-fo a:hover{
+    color: #898B8A; 
+    text-decoration: underline;
+}
+.Sign-in-fo p#ourTeam{
+    color: #898B8A;
+    margin-left: 50px;
+}
+
+/* Sign Up Section */
+
+.SignInForm{
+    height: 550px;
+    width: 400px;
+    background-color: #ffff;
+    position: absolute;
+    transform: translate(-70%,-45%);
+    top: 45%;
+    left: 70%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 20px #E8E8E8;
+    padding: 20px 55px;   
+}
+
+.SignInForm *{
+    font-family: 'Poppins',sans-serif;
+    color: #373A40;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+
+.field{
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 6px;
+    border: 1px solid #DDDDDD;
+    padding: 13px 6px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 300;
+}
+::placeholder{
+    color: #BBBBBB;
+}
+
+.button-feild{
+    margin-top: 2px;
+    margin-left: 70px;
+}
+
+.classy{
+    color:black;
+    width:270px;
+}
+
+.Sign-up-btn{
+    margin-top: 8px;
+    margin-left: 70px;
+    width: 50%;
+    background-color: #37CF32;
+    color: #ffffff;
+    padding: 10px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.Sign-up-btn:hover{
+    background-color: #2DA828;
+}
+
+.lineBreak{
+    align-items: center;
+    border-bottom: 1px solid #dadde1;
+    display: flex;
+    margin: 10px 16px;
+    text-align: center;
+}
+
+.actions .Sign-in-btn{
+    margin-top: 20px;
+    margin-left: 45px;
+    text-decoration: none;
+    width: 50%;
+    background-color: #5890FF;
+    color: #ffffff;
+    padding: 10px 72px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.actions .Sign-in-btn:hover{
+    background-color: #1877F2;
+}
+
+.Sign-up-fo{
+    transform: translate(-60%,50%);
+    width: 1800px;
+    top: 90%;
+    left: 30%;
+    display: block;
+    text-align: center;
+    padding: 25px;
+    background-color: white;
+    color: black;
+}
+.Sign-up-fo a{
+   padding-top: 30px;
+    text-align: center;
+    color: #898B8A; 
+    text-decoration: none;
+}
+.Sign-up-fo a:hover{
+    color: #898B8A; 
+    text-decoration: underline;
+}
+.Sign-up-fo p{
+    color: #898B8A;
+    margin-left: 100px;
+}
+.knowAbout{
+    padding: 150px 200px 16px;
+}
+.knowAbout .image{
+    height: 106px;
+    margin: -28px;
+}
+.knowAbout .paraToKnow{
+    font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+    font-size: 28px;
+    font-weight: normal;
+    line-height: 32px;
+    width: 500px;
+    margin-top: 10px;
+}
+.SignIn-btn{
+    margin-top: 13px;
+    margin-left: 1px;
+    width: 100%;
+    background-color: #5890FF;
+    color: #ffffff;
+    padding: 10px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.SignIn-btn:hover{
+    background-color: #1877F2;
+}
+.SignUp-btn{
+    margin-top: 13px;
+    margin-left: 20px;
+    width: 100%;
+    background-color: #37CF32;
+    color: #ffffff;
+    padding: 10px 90px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px; 
+    cursor: pointer;
+}
+.SignUp-btn:hover{
+    background-color: #2DA828;
+    text-decoration: none;
+    color: #ffff;
+}
+
+footer a{
+    padding-top: 30px;
+    text-align: center;
+    color: #898B8A; 
+    text-decoration: none;
+}
+footer a:hover{
+    color: #898B8A; 
+    text-decoration: underline;
+}
+
+/* Error Message Section */
+
+.errorMes{
+    position: absolute;
+    transform: translate(-70%,-45%);
+    top: 27%;
+    left: 90%;
+    color: brown;
+}
