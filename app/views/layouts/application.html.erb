@@ -13,22 +13,24 @@
     <%= stylesheet_link_tag "bootstrap",media: 'all', "data-turbo-track": "reload"  %>
     <%= javascript_include_tag "bootstrap", "data-turbo-track": "reload"  %>  
 
-<<<<<<< HEAD
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" %>
  
     <%= javascript_importmap_tags %>
  
-=======
+<%# 
     <link rel="stylesheet" href="../../assets/stylesheets/application.css">
-    <%# <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
->>>>>>> 59be644e7a4e8ab7cab3b72f1165ddbf5ef81562
+ %>
   </head>
 
   <body>
-       
-      <%= render "layouts/top_nav" %>
+       <% if current_user %>
+          <%= render "layouts/top_nav" %>
+        <% end %>
+      
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
    
