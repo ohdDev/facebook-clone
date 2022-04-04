@@ -13,3 +13,57 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #eff2f5 !important;
+    /* background: navy  */
+}
+
+.navbar {
+background-color: #fff;
+}
+
+.fa-facebook{
+    color: rgba(24,119,242,1)
+}
+
+.nav-link {
+    
+    transition: 0.3s ease;
+    padding: 5px;
+  }
+
+.nav-link {
+    padding-bottom: 15px;
+}
+
+.nav-item {
+    border-bottom: 4px solid white;
+}
+
+.nav-item:hover {
+    background-color: #eff2f5 !important;
+  }
+
+  .active a {
+    color: rgba(24,119,242,1) !important;
+    font-weight: 600;
+    
+  }
+  
+  .active {
+    background: transparent;
+    border-bottom: 4px solid rgba(24,119,242,1);
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .top-btn {
+    background-color: #DADDE1;
+  }
+
+  .basic-menu{
+    width:300px;
+  }
