@@ -4,7 +4,8 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     @post = Post.new
-    @posts = Post.all
+    # @posts = Post.all
+    @posts = Post.where('user_id IN (?)' , current_user.id).order(:created_at)
     @comment = Comment.new
   end
 
@@ -28,6 +29,7 @@ class PostsController < ApplicationController
     # @post = Post.new(post_params)
    
     @post = current_user.posts.new(post_params)
+    p @post.user_id
 
     respond_to do |format|
       if @post.save

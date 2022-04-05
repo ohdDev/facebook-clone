@@ -24,9 +24,9 @@
   <div class="post">
     <p class="post-header">
       <span>
-       
-     
-        <%= link_to "#{current_user.first_name}", current_user.first_name, class: "user-name" %>
+       <% p post.user_id%>
+      <% usere = User.find(post.user_id) %>
+        <%= link_to "#{usere.first_name}", current_user.first_name, class: "user-name" %>
       </span>
 
       <%= link_to distance_of_time_in_words(Time.now, post.created_at)+ ' ago', post, class: 'timestamp' %>
