@@ -1,5 +1,5 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-light shadow-sm pb-0">
-  <a class="navbar-brand" href="#"
+  <a class="navbar-brand" href="/"
     ><i class="fa-brands fa-facebook fa-2xl"></i
   ></a>
   <button
@@ -32,7 +32,7 @@
 
     <ul class="navbar-nav mx-auto mt-lg-0">
       <li class="nav-item px-4 active">
-        <a class="nav-link" href="#"><i class="fa-solid fa-house fa-xl"></i></a>
+        <a class="nav-link" href="/"><i class="fa-solid fa-house fa-xl"></i></a>
       </li>
       <li class="nav-item px-4">
         <a class="nav-link" href="#"
@@ -74,11 +74,11 @@
 
             <div class="dropdown-divider"></div>
 
-            <a class="dropdown-item settings-item" href="#settings-dropdown">
+            <a class="dropdown-item settings-item" href="#">
               <div class="row">
                 <div class="col-10">
                   <i class="fa-solid fa-gear"></i>
-                  <span class="ml-2">settings & privacy</span>
+                  <span class="ml-2">Settings</span>
                 </div>
                 <div class="col-2">
                   <i class="fa-solid fa-chevron-right"></i>
@@ -86,10 +86,33 @@
               </div>
             </a>
 
-            <a class="dropdown-item" href="#"
-              ><i class="fa-solid fa-right-from-bracket"></i>
-              <span class="ml-2">Logout</span>
+          <%#  
+            <a class="dropdown-item settings-item" href="#">
+              <div class="row">
+                <div class="col-10">
+                  <i class="fa-solid fa-globe"></i>
+                  <span class="ml-2">Language</span>
+                </div>
+                <div class="col-2">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </div>
+              </div>
             </a>
+          %>
+
+            <a data-turbo-method="delete" 
+            class="dropdown-item text-decoration-none d-inline dropdown-item" 
+            href="/users/sign_out">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span class="ml-2">
+            Logout
+            </span>
+            </a>
+
+           
+              
+              <%# <%= link_to("Logout",destroy_user_session_path(@user),  data: { turbo_method: :delete}, class: "text-decoration-none d-inline ") %> 
+            
           </div>
 
         </div>
