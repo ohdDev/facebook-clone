@@ -7,8 +7,7 @@ class CommentsController < ApplicationController
   # end
 
   # GET /comments/1 or /comments/1.json
-  def show
-  end
+ 
 
   # GET /comments/new
   def new
@@ -17,6 +16,7 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
+    set_comment
   end
 
   # POST /comments or /comments.json
