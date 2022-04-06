@@ -39,8 +39,9 @@ class CommentsController < ApplicationController
   def update
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to comment_url(@comment), notice: "Comment was successfully updated." }
+        format.html { redirect_to  Post.find(@comment.post_id), notice: "Comment was successfully updated." }
         format.json { render :show, status: :ok, location: @comment }
+        # redirect_to Post.find(@comment.post_id)
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
