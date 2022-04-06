@@ -386,15 +386,17 @@ footer a:hover{
     left: 90%;
     color: brown;
 }
-=======
- body {
+
+
+
+ /* body {
     margin: 0;
-    display: grid;
+    display: grid; */
     /* grid-template-columns: 22% 33% 25% 20%; */
     /* grid-template-columns: 22% 33% 25% 20%; */
-    grid-template-columns: 260px 500px 320px 255px;
+    /* grid-template-columns: 260px 500px 320px 255px; */
     /* grid-template-columns: 300px 450px 342px 273px; */
-    grid-template-rows: 24px auto;
+    /* grid-template-rows: 24px auto;
     font-family: 'Roboto', sans-serif;
     background-color: rgb(233,235,238);
     font-size: 12px;
@@ -403,26 +405,29 @@ footer a:hover{
  
  .navbar {
    display: inline;
-   position: fixed;
-   padding-bottom: 11px;
+   position: fixed; */
+   /* padding-bottom: 11px; */
    /* margin-bottom: 4vh; */
-   height: 24px;
+   /* height: 24px;
    background-color: rgb(66,103,178);
    margin: 0;
    color: rgb(255,255,255);
    width: 100%;
    z-index: 5;
  }
- 
- .navbar ul {
+  */
+ /* .navbar ul {
    transform: translateY(-10px);
  }
+
  .navbar li {
    display: inline;
    font-size: 11px;
    font-weight: bold;
    margin-right: 25px;
- }
+ } */
+
+
  .navbar-tac {
    margin-right: 2.5px !important;
  }
