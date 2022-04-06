@@ -55,11 +55,11 @@ body{
 }
 .actions1 .SignUp-btn1{
     margin-top: 8px;
-    margin-left: 50px;
-    width: 100%;
+    margin-left: 72px;
+    width: 50%;
     background-color: #37CF32;
     color: #ffffff;
-    padding: 10px 60px;
+    padding: 10px 30px;
     font-size: 18px;
     font-weight: 600;
     border-radius: 5px;
@@ -127,7 +127,7 @@ body{
 
 /* Sign Up Section */
 
-.SignInForm{
+.SignUpForm{
     height: 550px;
     width: 400px;
     background-color: #ffff;
@@ -142,7 +142,7 @@ body{
     padding: 20px 55px;   
 }
 
-.SignInForm *{
+.SignUpForm *{
     font-family: 'Poppins',sans-serif;
     color: #373A40;
     letter-spacing: 0.5px;
@@ -203,12 +203,12 @@ body{
 
 .actions .Sign-in-btn{
     margin-top: 20px;
-    margin-left: 45px;
+    margin-left: 65px;
     text-decoration: none;
     width: 50%;
     background-color: #5890FF;
     color: #ffffff;
-    padding: 10px 72px;
+    padding: 10px 50px;
     font-size: 18px;
     font-weight: 600;
     border-radius: 5px;
@@ -217,6 +217,10 @@ body{
 
 .actions .Sign-in-btn:hover{
     background-color: #1877F2;
+}
+
+.form1 .forg{
+    margin-left: 80px;
 }
 
 .Sign-up-fo{
