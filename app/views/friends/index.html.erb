@@ -1,4 +1,12 @@
+<%= render "side_nav" %>
+
 <h1>The Friends of this user are</h1>
 <% @friends.each do |friend| %>
   <p class="text-danger"><%= link_to friend.first_name, user_path(friend) %></p>
 <% end %>
+
+ </main>
+
+      </div>
+
+    </div>
