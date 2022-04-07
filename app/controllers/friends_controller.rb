@@ -66,13 +66,14 @@ class FriendsController < ApplicationController
         redirect_to request.referrer
     end
 
-    def add
+    def add_friend
         @curr_user = User.find(current_user.id)
-        @friend = Friend.create(friend_params)
+        @friend = Friend.create(follower_id: params[:follower_id],followee_id: params[:followee_id])
+        p "$$$$$$$$$$ ",@friend
 
         # @friend = Friend.new(:follower_id => @curr_user.id ,
         #     :followee_id => Friend.find(params[:followee_id]))
-        @friend.save
+        # @friend.save
         redirect_to request.referrer
     end
 
