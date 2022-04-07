@@ -2,7 +2,22 @@ class FriendsController < ApplicationController
 
     def index
         @curr_user = User.find(current_user.id)
-        @friends = @curr_user.followers
+        @followers = @curr_user.followers
+
+        @all_followers=[]
+        @followers.each do |follower|
+            @all_followers.push(follower.id)
+        end
+
+        @users = User.where.not(id: @curr_user.id).where.not(id: @all_followers)
+
+        # @followers.each do |follower|
+        #     @users = User.where.not(id: follower.id).where.not(id: @curr_user.id)
+        # end
+        # @users = []
+        # @followers.each do |follower|
+        #     @users.push(@followers.where(id: req.follower_id).first)
+        # end
     end
 
     def requests
@@ -47,6 +62,16 @@ class FriendsController < ApplicationController
         @curr_user = User.find(current_user.id)
         @friend = Friend.find(params[:id])
         @friend.status = "blocked"
+        @friend.save
+        redirect_to request.referrer
+    end
+
+    def add
+        @curr_user = User.find(current_user.id)
+        @friend = Friend.create(friend_params)
+
+        # @friend = Friend.new(:follower_id => @curr_user.id ,
+        #     :followee_id => Friend.find(params[:followee_id]))
         @friend.save
         redirect_to request.referrer
     end

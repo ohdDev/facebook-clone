@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post "/friends/confirm" , to: "friends#confirm"
   post "/friends/delete" , to: "friends#delete"
   post "/friends/block" , to: "friends#block"
+  post "/friends/add" , to: "friends#add"
   resources :friends
   resources :comments
   resources :posts

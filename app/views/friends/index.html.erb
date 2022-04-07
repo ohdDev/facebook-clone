@@ -28,9 +28,25 @@
         <main role="main" class="col-md-10 ml-sm-auto col-lg-9 pt-3 px-4 h-100">
          
 
-<h1 class="text-center">The Friends of this user are</h1>
-<% @friends.each do |friend| %>
-  <p class="text-danger"><%= link_to friend.first_name, user_path(friend) %></p>
+<h3>People you may know</h3>
+<% @users.each do |user| %>
+  <div class="row">
+  <div class="col-3">
+  <div class="card">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><p><%= link_to user.first_name, user_path(user) %></p></h5>
+
+    <%= button_to '+ add friend', { :action => "add", 
+        :controller => "friends", 
+        :followee_id => user.id, :follower_id => @curr_user.id} ,
+        {:class => "btn btn-light"} %>
+
+  </div>
+</div>
+  </div>
+   </div>
+  
 <% end %>
 
  </main>
