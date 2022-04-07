@@ -64,8 +64,11 @@
       <% end %>
     </p>
 
+    <%= @post.likes.count%> Likes
+    <%= @post.comments.count%> Comments
     <div class="like-comment-buttons">
       <button class="comment-button"><i class="far fa-comment-alt"></i> Comment</button>
+      <button class="like-button"><i class='fas fa-thumbs-up'></i> Like</button> 
     </div>
 
  <br>

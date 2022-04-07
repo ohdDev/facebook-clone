@@ -51,7 +51,6 @@
 
   <br/>
 
-  
   <% if @post.comments.count > 0 %>
   <div class="all-comments">
     <% @post.comments.each do |comment| %>
@@ -79,7 +78,9 @@
     
     <%= c.hidden_field :post_id, value: @post.id %>
   <% end %>
+  
 
 
 </div>
+
 </div>
