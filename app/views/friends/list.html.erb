@@ -1,0 +1,70 @@
+ <div class="container-fluid">
+      <div class="row">
+        <nav class="col-lg-3 col-md-2 d-none d-md-block bg-white sidebar">
+          <div class="sidebar-sticky">
+    
+          <a href="/friends"><i class="fa-solid fa-arrow-left"></i></a>
+           <h3 class="font-weight-bold d-inline pl-3">All Friends</h3>
+   
+           <div class="dropdown-divider"></div>
+
+           <span><%= @friends.count %> Friend Requests</span>
+
+            <ul class="nav flex-column">
+             <% @friends.each do |friend| %>
+              <li class="nav-item">
+             
+              <div class="row">
+                <div class="col-2">
+                  <i class="fa-solid fa-circle-user fa-3x"></i>
+                </div>
+                <div class="col-10">
+
+                <div class="row">
+                  <div class="col-9 d-inline">
+                     <p class="d-inline"><%= friend.first_name %></p>
+                    </div>
+                </div>
+
+                 
+                <div class="req-buttons">
+                <div class="row justify-content-center">
+                <div class="col d-inline">
+                <%= button_to 'Block', { :action => "block", 
+                :controller => "friends",
+                :id => Friend.where(follower_id: friend.id).where(followee_id: current_user.id).first.id}, 
+                {:class => "btn btn-danger btn-sm w-100"} %>
+                </div>
+
+                <div class="col d-inline">
+                <%= button_to 'Remove', { :action => "delete", 
+                :controller => "friends", 
+                :id => Friend.where(follower_id: friend.id).where(followee_id: current_user.id).first.id},
+                 {:class => "btn btn-light btn-sm w-100" } %>
+                </div>
+                </div>
+                </div>
+
+
+      
+                </div>
+              </div>
+                
+              </li>
+             <% end %>
+
+            </ul>
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-10 ml-sm-auto col-lg-9 pt-3 px-4 h-100">
+         
+
+<h1 class="text-center">The Friends of this user are</h1>
+
+
+ </main>
+
+      </div>
+
+    </div>
