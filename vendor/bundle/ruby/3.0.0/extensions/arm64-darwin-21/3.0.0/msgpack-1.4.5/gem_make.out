@@ -1,5 +1,7 @@
 current directory: /Users/ahlam/Desktop/sprints/facebook-clone/vendor/bundle/ruby/3.0.0/gems/msgpack-1.4.5/ext/msgpack
-/Users/ahlam/.rvm/rubies/ruby-3.0.0/bin/ruby -I /Users/ahlam/.rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0 -r ./siteconf20220403-10384-48ya6j.rb extconf.rb
+
+/Users/ahlam/.rvm/rubies/ruby-3.0.0/bin/ruby -I /Users/ahlam/.rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0 -r ./siteconf20220405-31208-ysxkqw.rb extconf.rb
+
 checking for ruby/st.h... yes
 checking for st.h... no
 checking for rb_enc_interned_str() in ruby.h... yes
@@ -26,4 +28,8 @@ linking shared-object msgpack/msgpack.bundle
 
 current directory: /Users/ahlam/Desktop/sprints/facebook-clone/vendor/bundle/ruby/3.0.0/gems/msgpack-1.4.5/ext/msgpack
 make "DESTDIR=" install
+<<<<<<< HEAD
 /opt/homebrew/opt/coreutils/bin/ginstall -c -m 0755 msgpack.bundle ./.gem.20220403-10384-rj0l12/msgpack
+=======
+/opt/homebrew/opt/coreutils/bin/ginstall -c -m 0755 msgpack.bundle ./.gem.20220405-31208-bi2twi/msgpack
+>>>>>>> feature/registration

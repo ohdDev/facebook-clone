@@ -7,8 +7,7 @@ class CommentsController < ApplicationController
   # end
 
   # GET /comments/1 or /comments/1.json
-  def show
-  end
+ 
 
   # GET /comments/new
   def new
@@ -17,6 +16,7 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
+    set_comment
   end
 
   # POST /comments or /comments.json
@@ -39,8 +39,9 @@ class CommentsController < ApplicationController
   def update
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to comment_url(@comment), notice: "Comment was successfully updated." }
+        format.html { redirect_to  Post.find(@comment.post_id), notice: "Comment was successfully updated." }
         format.json { render :show, status: :ok, location: @comment }
+        # redirect_to Post.find(@comment.post_id)
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
@@ -53,7 +54,7 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: "Comment was successfully destroyed." }
+      format.html { redirect_to posts_url, notice: "Comment was successfully destroyed." }
       format.json { head :no_content }
     end
   end

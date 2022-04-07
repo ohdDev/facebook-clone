@@ -1,5 +1,7 @@
 current directory: /Users/ahlam/Desktop/sprints/facebook-clone/vendor/bundle/ruby/3.0.0/gems/nio4r-2.5.8/ext/nio4r
-/Users/ahlam/.rvm/rubies/ruby-3.0.0/bin/ruby -I /Users/ahlam/.rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0 -r ./siteconf20220403-10384-2hro7j.rb extconf.rb
+
+/Users/ahlam/.rvm/rubies/ruby-3.0.0/bin/ruby -I /Users/ahlam/.rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0 -r ./siteconf20220405-31208-js7jyv.rb extconf.rb
+
 checking for unistd.h... yes
 checking for linux/aio_abi.h... no
 checking for linux/io_uring.h... no
@@ -40,4 +42,8 @@ linking shared-object nio4r_ext.bundle
 
 current directory: /Users/ahlam/Desktop/sprints/facebook-clone/vendor/bundle/ruby/3.0.0/gems/nio4r-2.5.8/ext/nio4r
 make "DESTDIR=" install
+<<<<<<< HEAD
 /opt/homebrew/opt/coreutils/bin/ginstall -c -m 0755 nio4r_ext.bundle ./.gem.20220403-10384-2dljt8
+=======
+/opt/homebrew/opt/coreutils/bin/ginstall -c -m 0755 nio4r_ext.bundle ./.gem.20220405-31208-xrn4ii
+>>>>>>> feature/registration
