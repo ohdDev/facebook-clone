@@ -20,6 +20,7 @@ class FriendsController < ApplicationController
         @friend = Friend.find(params[:id])
         @friend.status = "accepted"
         @friend.save
+        redirect_to request.referrer
     end
 
     def delete
@@ -27,7 +28,27 @@ class FriendsController < ApplicationController
         # @friend = @curr_user.followers.find(params[:id])
         @friend = Friend.find(params[:id])
         @friend.destroy
-        format.html { redirect_to current_page_url}
+        redirect_to request.referrer
+    end
+
+    def list
+        @curr_user = User.find(current_user.id)
+        @followers = @curr_user.followers
+        @reqs = Friend.where(followee_id: current_user.id, status: "accepted")
+
+        @friends = []
+        @reqs.each do |req|
+            @friends.push(@followers.where(id: req.follower_id).first)
+        end
+    
+    end
+
+    def block
+        @curr_user = User.find(current_user.id)
+        @friend = Friend.find(params[:id])
+        @friend.status = "blocked"
+        @friend.save
+        redirect_to request.referrer
     end
 
     private

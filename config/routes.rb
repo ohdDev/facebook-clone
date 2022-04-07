@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get "/friends/requests" , to: "friends#requests", as: 'friends_requests'
+  get "/friends/list" , to: "friends#list", as: 'friends_list'
   post "/friends/confirm" , to: "friends#confirm"
   post "/friends/delete" , to: "friends#delete"
+  post "/friends/block" , to: "friends#block"
   resources :friends
   resources :comments
   resources :posts
