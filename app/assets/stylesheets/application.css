@@ -750,3 +750,6 @@ footer a:hover{
   color: darkred;
 } */
 
+.req-buttons form{
+  display: inline;
+}

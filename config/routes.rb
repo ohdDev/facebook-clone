@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get "/friends/requests" , to: "friends#requests", as: 'friends_requests'
+  post "/friends/confirm" , to: "friends#confirm"
+  post "/friends/delete" , to: "friends#delete"
   resources :friends
   resources :comments
   resources :posts
@@ -6,6 +9,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   resources :users
+  
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

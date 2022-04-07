@@ -1,6 +1,34 @@
-<%= render "side_nav" %>
+ <div class="container-fluid">
+      <div class="row">
+        <nav class="col-lg-3 col-md-2 d-none d-md-block bg-white sidebar">
+          <div class="sidebar-sticky">
+          <h3 class="font-weight-bold">Friends</h3>
+            <ul class="nav flex-column">
 
-<h1>The Friends of this user are</h1>
+              <li class="nav-item">
+                  <span data-feather="home"></span>
+                  <a href="/friends">Home</a>
+                    <span class="sr-only">(current)</span>
+              </li>
+
+              <li class="nav-item">
+                  <span data-feather="requests"></span>
+                  <a href="/friends/requests">Friend Requests</a>          
+              </li>
+
+              <li class="nav-item">
+                  <span data-feather="list"></span>
+                  <a href="#">All Friends</a>          
+              </li>
+
+            </ul>
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-10 ml-sm-auto col-lg-9 pt-3 px-4 h-100">
+         
+
+<h1 class="text-center">The Friends of this user are</h1>
 <% @friends.each do |friend| %>
   <p class="text-danger"><%= link_to friend.first_name, user_path(friend) %></p>
 <% end %>
