@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-light shadow-sm pb-0">
+<nav class="navbar top-nav fixed-top navbar-expand-lg bg-white navbar-light shadow-sm pb-0">
   <a class="navbar-brand" href="/"
     ><i class="fa-brands fa-facebook fa-2xl"></i
   ></a>
@@ -15,6 +15,7 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+ 
     <div class="input-group" style="width: 230px">
       <span class="input-group-append">
         <div class="input-group-text border-0 bg-transparent">
@@ -30,18 +31,28 @@
       />
     </div>
 
-    <ul class="navbar-nav mx-auto mt-lg-0">
 
-     <a class="nav-link" href="/posts"><i class="fa-solid fa-house fa-xl"></i></a>
+
+    <ul class="navbar-nav mx-auto mt-lg-0 mid-nav">
+      <li class="nav-item px-4" >
+        <a class="nav-link" href="/"><i class="fa-solid fa-house fa-xl"></i></a>
+
+    <%# <ul class="navbar-nav mx-auto mt-lg-0">
+
+     <a class="nav-link" href="/posts"><i class="fa-solid fa-house fa-xl"></i></a> %>
+
 
       </li>
       <li class="nav-item px-4">
-        <a class="nav-link" href="#"
+         <a class="nav-link" href="/friends"
           ><i class="fa-solid fa-user-group fa-xl"></i
         ></a>
+        <%# <%= link_to '<i class="fa-solid fa-user-group fa-xl"></i
+        >'.html_safe, friends_path, class: "nav-link" %> 
       </li>
 
-      <li class="nav-item px-4">
+
+      <li class="nav-item px-4" >
         <a class="nav-link" href="#"><i class="fa-solid fa-users fa-xl"></i></a>
       </li>
 
