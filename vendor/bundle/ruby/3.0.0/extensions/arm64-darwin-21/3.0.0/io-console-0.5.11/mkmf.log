@@ -128,7 +128,9 @@ checked program was:
 "gcc -fdeclspec -o conftest -I/Users/ahlam/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/arm64-darwin21 -I/Users/ahlam/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/ruby/backward -I/Users/ahlam/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -I/opt/homebrew/opt/libyaml/include -I/opt/homebrew/opt/libksba/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/zlib/include -I/opt/homebrew/opt/openssl@1.1/include -fno-common -pipe conftest.c  -L. -L/Users/ahlam/.rvm/rubies/ruby-3.0.0/lib -L. -L/opt/homebrew/opt/libyaml/lib -L/opt/homebrew/opt/libksba/lib -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/zlib/lib -L/opt/homebrew/opt/openssl@1.1/lib -fstack-protector-strong -L/usr/local/lib  -m64   -lruby.3.0   "
 Undefined symbols for architecture arm64:
   "_rb_scheduler_timeout", referenced from:
-      _t in conftest-fb4d96.o
+
+      _t in conftest-4f52d5.o
+>>>>>>> feature/registration
 ld: symbol(s) not found for architecture arm64
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 checked program was:

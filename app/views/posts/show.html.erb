@@ -1,18 +1,21 @@
 <div class="posts-show">
+ <%= link_to "Back", posts_path %>
 <div class="post">
+
 <p class="post-header">
 <style>
 .button {
    /* Green */
   border: none;
   color: black;
+  background-color: white;
 
  
   font-size: 10px;
    cursor: pointer;
    position: absolute;
    right: 760px;
-   top: 60px;
+   top: 90px;
 }
 </style>
   <span>
@@ -31,6 +34,7 @@
    
  <%# <%= button_to t('buttons.Delete'), @post, :class => "button button4", :method => :delete %> 
     </span>
+  
   <% end %>
 </p>
 
@@ -61,7 +65,7 @@
         <% if current_user.id == comment.user_id %>
           <span class="edit-delete-comment">
             <%= link_to 'Edit', edit_comment_path(comment) %>
-            <%= link_to 'Delete', comment, method: :delete, data: {confirm: "Are you sure?"} %>
+            <%# <%= link_to 'Delete', comment, method: :delete, data: {confirm: "Are you sure?"} %> 
           </span>
         <% end %>
       </p>
@@ -72,8 +76,10 @@
     
     <%= c.text_area :content, class: "comment-field", placeholder: "Write a comment...", rows: "1" %>
     <%= c.submit "Comment" %>
+    
     <%= c.hidden_field :post_id, value: @post.id %>
   <% end %>
+
 
 </div>
 </div>

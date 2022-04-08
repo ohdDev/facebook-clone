@@ -4,7 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  has_many :posts
+         has_many :post, dependent: :destroy, foreign_key: 'user_id'
+
+
+         has_many :posts, dependent: :destroy, foreign_key: 'user_id'
   has_many :comments
 
   has_many :followed_users, foreign_key: :follower_id, class_name: 'Friend'
@@ -18,5 +21,8 @@ class User < ApplicationRecord
   validates :birthday, presence: true  
   validates :gender, presence: true  
   
+
   has_many :events
+  has_many :notifications, as: :recipient
+
 end

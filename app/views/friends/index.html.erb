@@ -1,7 +1,7 @@
  <div class="container-fluid">
       <div class="row">
         <nav class="col-lg-3 col-md-2 d-none d-md-block bg-white sidebar">
-          <div class="sidebar-sticky">
+          <div class="sidebar-sticky p-3">
           <h3 class="font-weight-bold">Friends</h3>
             <ul class="nav flex-column">
 
@@ -29,25 +29,27 @@
          
 
 <h3>People you may know</h3>
+<div class="row">
 <% @users.each do |user| %>
-  <div class="row">
+  
   <div class="col-3">
   <div class="card">
   <img src="..." class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title"><p><%= link_to user.first_name, user_path(user) %></p></h5>
+    <h5 class="card-title"><p><%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %></p></h5>
 
-    <%= button_to '+ add friend', { :action => "add", 
-        :controller => "friends", 
+    <%= button_to '+ add friend', { :controller => "friends", 
+        :action => "add_friend", 
         :followee_id => user.id, :follower_id => @curr_user.id} ,
         {:class => "btn btn-light"} %>
 
   </div>
 </div>
   </div>
+  <% end %>
    </div>
   
-<% end %>
+
 
  </main>
 
