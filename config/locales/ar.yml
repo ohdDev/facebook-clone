@@ -1,0 +1,19 @@
+ar:
+  Pages:
+    desc_of_website: 'يمنحك فيسبوك إمكانية التواصل مع الأشخاص ومشاركة ما تريد معهم'
+    sign_up_page:
+      first_name: 'الاسم الاول'
+      last_name: 'اسم العائلة'
+      email: 'البريد الالكتروني'
+      password_desc: 'كلمة المرور (يجب ان لا تقل عن ٦ خانات)'
+      password_conf: 'تأكيد كلمة المرور'
+      gender:
+        male: 'ذكر'
+        female: 'أنثى'
+    buttons:
+      sign_up_btn: 'إنشاء حساب'
+      login_btn: 'الدخول'
+    sign_in_page:
+      email: 'البريد الالكتروني'
+      password: 'كلمة المرور'
+      forget_password: 'هل نسيت كلمة المرور؟'
