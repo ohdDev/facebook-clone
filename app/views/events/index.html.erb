@@ -1,0 +1,35 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="container-fluid">
+      <div class="row">
+        <nav class="col-lg-3 col-md-2 d-none d-md-block bg-white sidebar">
+          <div class="sidebar-sticky">
+          <h3 class="font-weight-bold">Events</h3>
+            <ul class="nav flex-column">
+
+            
+
+              <li class="nav-item">
+                  <span data-feather="requests"></span>
+                  <a href="/events/new">Add new event</a>          
+              </li>
+
+              <li class="nav-item">
+                  <span data-feather="list"></span>
+                  <a href="/events">All Events</a>          
+              </li>
+              </ul>
+          </div>
+        </nav>
+        <main role="main" class="col-md-10 ml-sm-auto col-lg-9 pt-3 px-4 h-100">
+
+<div id="events">
+  <% @events.each do |event| %>
+  <hr>
+    <%= render event %>
+    <button type="button" class="btn btn-outline-info"> <%= link_to "Show this event", event %> </button>
+  <% end %>
+</div>
+
+
+ 

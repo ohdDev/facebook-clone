@@ -10,9 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_07_192644) do
-=======
-ActiveRecord::Schema[7.0].define(version: 2022_04_06_055507) do
+
+ActiveRecord::Schema[7.0].define(version: 2022_04_07_224435) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -52,6 +51,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_06_055507) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.date "start_date"
+    t.date "end_date"
+    t.boolean "privacy"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+
   create_table "notifications", force: :cascade do |t|
     t.string "recipient_type", null: false
     t.integer "recipient_id", null: false
@@ -62,7 +74,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_06_055507) do
     t.datetime "updated_at", null: false
     t.index ["read_at"], name: "index_notifications_on_read_at"
     t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient"
-=======
+
   create_table "friends", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followee_id"
@@ -70,6 +82,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_06_055507) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
 
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.string "recipient_type", null: false
+    t.integer "recipient_id", null: false
+    t.string "type", null: false
+    t.json "params"
+    t.datetime "read_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["read_at"], name: "index_notifications_on_read_at"
+    t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -103,5 +127,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_06_055507) do
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "events", "users"
   add_foreign_key "posts", "users"
 end
