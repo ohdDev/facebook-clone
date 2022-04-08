@@ -1,0 +1,26 @@
+current directory: /Users/ahlam/Desktop/sprints/facebook-clone/vendor/bundle/ruby/3.0.0/gems/digest-3.1.0/ext/digest/sha2
+<<<<<<< HEAD
+/Users/ahlam/.rvm/rubies/ruby-3.0.0/bin/ruby -I /Users/ahlam/.rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0 -r ./siteconf20220403-10384-7fjung.rb extconf.rb
+=======
+/Users/ahlam/.rvm/rubies/ruby-3.0.0/bin/ruby -I /Users/ahlam/.rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0 -r ./siteconf20220405-31208-tb5n6l.rb extconf.rb
+>>>>>>> feature/registration
+checking for u_int8_t... yes
+checking for sys/cdefs.h... yes
+creating Makefile
+
+current directory: /Users/ahlam/Desktop/sprints/facebook-clone/vendor/bundle/ruby/3.0.0/gems/digest-3.1.0/ext/digest/sha2
+make "DESTDIR=" clean
+
+current directory: /Users/ahlam/Desktop/sprints/facebook-clone/vendor/bundle/ruby/3.0.0/gems/digest-3.1.0/ext/digest/sha2
+make "DESTDIR="
+compiling sha2init.c
+compiling sha2.c
+linking shared-object digest/sha2.bundle
+
+current directory: /Users/ahlam/Desktop/sprints/facebook-clone/vendor/bundle/ruby/3.0.0/gems/digest-3.1.0/ext/digest/sha2
+make "DESTDIR=" install
+<<<<<<< HEAD
+/opt/homebrew/opt/coreutils/bin/ginstall -c -m 0755 sha2.bundle ./.gem.20220403-10384-ed2vh2/digest
+=======
+/opt/homebrew/opt/coreutils/bin/ginstall -c -m 0755 sha2.bundle ./.gem.20220405-31208-nafnn6/digest
+>>>>>>> feature/registration
