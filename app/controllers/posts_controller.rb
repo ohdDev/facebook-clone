@@ -4,9 +4,21 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     @post = Post.new
+
+    @followers = @current_user.followers
+
+    @all_followers=[]
+    @followers.each do |follower|
+        @all_followers.push(follower.id)
+    end
+
+
+     @posts = Post.where('user_id IN (?) OR user_id = ?', @all_followers, current_user.id).order(:created_at).page(params[:page]).per(5)
+     
+
     # @posts = Post.all
-    @posts = Post.where('user_id IN (?)' , current_user.id).order(:created_at)
-  #  @posts = Post.where('user_id IN (?) OR user_id = ?', current_user.followers, current_user.id).order(:created_at).page(params[:page]).per(5)
+  #  @posts = Post.where('user_id IN (?)' , current_user.id).order(:created_at)
+    # @posts = Post.where('user_id IN (?) OR user_id = ?', current_user.followers, current_user.id).order(:created_at).page(params[:page]).per(5)
    
     @comment = Comment.new
   end
