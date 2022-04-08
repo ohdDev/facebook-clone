@@ -5,8 +5,23 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     @post = Post.new
+
+    @followers = @current_user.followers
+
+    @all_followers=[]
+    @followers.each do |follower|
+        @all_followers.push(follower.id)
+    end
+
+
+     @posts = Post.where('user_id IN (?) OR user_id = ?', @all_followers, current_user.id).order(:created_at).page(params[:page]).per(5)
+     
+
     # @posts = Post.all
-    @posts = Post.where('user_id IN (?)' , current_user.id).order(created_at: :desc)
+    # @posts = Post.where('user_id IN (?)' , current_user.id).order(created_at: :desc)
+  #  @posts = Post.where('user_id IN (?)' , current_user.id).order(:created_at)
+    # @posts = Post.where('user_id IN (?) OR user_id = ?', current_user.followers, current_user.id).order(:created_at).page(params[:page]).per(5)
+   
     @comment = Comment.new
   end
 
@@ -14,6 +29,8 @@ class PostsController < ApplicationController
   def show
     set_post
     @comment = Comment.new
+
+    mark_notifications_as_read
   end
 
   # GET /posts/new
@@ -77,5 +94,12 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:content, :image, :user_id)
   
+    end
+    
+    def mark_notifications_as_read
+      if current_user
+        notifications_to_mark_as_read = @post.notifications_as_post.where(recipient: current_user)
+        notifications_to_mark_as_read.update_all(read_at: Time.zone.now)
+      end
     end
 end

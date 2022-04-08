@@ -1,0 +1,16 @@
+current directory: /Users/ahlam/Desktop/facebook-clone/vendor/bundle/ruby/3.0.0/gems/unf_ext-0.0.8.1/ext/unf_ext
+/Users/ahlam/.rvm/rubies/ruby-3.0.0/bin/ruby -I /Users/ahlam/.rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0 -r ./siteconf20220408-57848-aby0gg.rb extconf.rb
+checking for -lstdc++... yes
+creating Makefile
+
+current directory: /Users/ahlam/Desktop/facebook-clone/vendor/bundle/ruby/3.0.0/gems/unf_ext-0.0.8.1/ext/unf_ext
+make "DESTDIR=" clean
+
+current directory: /Users/ahlam/Desktop/facebook-clone/vendor/bundle/ruby/3.0.0/gems/unf_ext-0.0.8.1/ext/unf_ext
+make "DESTDIR="
+compiling unf.cc
+linking shared-object unf_ext.bundle
+
+current directory: /Users/ahlam/Desktop/facebook-clone/vendor/bundle/ruby/3.0.0/gems/unf_ext-0.0.8.1/ext/unf_ext
+make "DESTDIR=" install
+/opt/homebrew/opt/coreutils/bin/ginstall -c -m 0755 unf_ext.bundle ./.gem.20220408-57848-ahvl7a
