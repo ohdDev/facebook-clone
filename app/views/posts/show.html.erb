@@ -1,23 +1,10 @@
+<div class="postss">
 <div class="posts-show">
  <%= link_to "Back", posts_path %>
 <div class="post">
 
 <p class="post-header">
-<style>
-.button {
-   /* Green */
-  border: none;
-  color: black;
-  background-color: white;
 
- 
-  font-size: 10px;
-   cursor: pointer;
-   position: absolute;
-   right: 760px;
-   top: 90px;
-}
-</style>
   <span>
    
     <%= link_to "#{@post.user.first_name}", @post.user.first_name, class: "user-name" %>
@@ -30,7 +17,7 @@
        <%# <%= link_to 'Delete', @post, method: :delete %> 
     
       
-      <%= button_to 'delete', @post, :class => "button button4", :method => :delete, data: {confirm: "Are you sure?"} %>
+      <%= button_to 'delete', @post, :class => "deletee", :method => :delete, data: {confirm: "Are you sure?"} %>
    
  <%# <%= button_to t('buttons.Delete'), @post, :class => "button button4", :method => :delete %> 
     </span>
@@ -81,5 +68,6 @@
   <% end %>
 
 
+</div>
 </div>
 </div>

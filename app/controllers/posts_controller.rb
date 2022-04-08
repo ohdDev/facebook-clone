@@ -6,6 +6,8 @@ class PostsController < ApplicationController
     @post = Post.new
     # @posts = Post.all
     @posts = Post.where('user_id IN (?)' , current_user.id).order(:created_at)
+  #  @posts = Post.where('user_id IN (?) OR user_id = ?', current_user.followers, current_user.id).order(:created_at).page(params[:page]).per(5)
+   
     @comment = Comment.new
   end
 
