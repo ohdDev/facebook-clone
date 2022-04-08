@@ -121,16 +121,17 @@
             </a>
           %>
 
-            <a data-turbo-method="delete" 
+            <%# <a data-turbo-method="delete" 
             class="dropdown-item text-decoration-none d-inline dropdown-item" 
             href="/users/sign_out">
             <i class="fa-solid fa-right-from-bracket"></i>
             <span class="ml-2">
             Logout
             </span>
-            </a>
+            </a> %>
 
-           
+            <%= button_to '<i class="fa-solid fa-right-from-bracket mr-2"></i> Logout'.html_safe,
+             destroy_user_session_path(@user), method: :delete, class: "dropdown-item text-decoration-none d-inline dropdown-item" %> 
               
               <%# <%= link_to("Logout",destroy_user_session_path(@user),  data: { turbo_method: :delete}, class: "text-decoration-none d-inline ") %> 
             

@@ -5,4 +5,5 @@ class UsersController < ApplicationController
         @curr_user = User.find(current_user.id)
     end
 
+
 end    
