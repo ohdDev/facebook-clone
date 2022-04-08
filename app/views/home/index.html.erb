@@ -1,1 +1,47 @@
-<p> This is Home</p>
+<div class="container-fluid">
+      <div class="row">
+        <nav class="col-lg-3 col-md-2 d-none d-md-block bg-white sidebar">
+          <div class="sidebar-sticky p-3">
+            <ul class="nav flex-column">
+            
+            <li class="nav-item">
+            <a href="#">
+                  <i class="fa-solid fa-circle-user fa-2xl mr-2"></i>
+                
+                 <%= current_user.first_name %>  <%= current_user.last_name %>
+                
+             </a>
+              </li>
+
+
+              <li class="nav-item">
+                  <span data-feather="requests"></span>
+                  <a href="#">Evente</a>          
+              </li>
+
+              <li class="nav-item">
+                  <span data-feather="list"></span>
+                  <a href="#">Groups</a>          
+              </li>
+
+            </ul>
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-10 ml-sm-auto col-lg-9 pt-3 px-4 h-100">
+
+
+<div class="row">
+  <div class="col-9">
+
+    <%= render "posts/post_form"%>
+  
+   </div>
+   </div>
+
+
+ </main>
+
+      </div>
+
+    </div>

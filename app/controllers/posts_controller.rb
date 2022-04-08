@@ -1,11 +1,12 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
+ 
 
   # GET /posts or /posts.json
   def index
     @post = Post.new
     # @posts = Post.all
-    @posts = Post.where('user_id IN (?)' , current_user.id).order(:created_at)
+    @posts = Post.where('user_id IN (?)' , current_user.id).order(created_at: :desc)
     @comment = Comment.new
   end
 
@@ -33,7 +34,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
+        format.html { redirect_to request.referrer, notice: "Post was successfully created." }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -46,7 +47,8 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to post_url(@post), notice: "Post was successfully updated." }
+        
+        format.html { redirect_to request.referer , notice: "Post was successfully updated." }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit, status: :unprocessable_entity }
