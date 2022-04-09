@@ -7,7 +7,7 @@ class LikesController < ApplicationController
 
     respond_to do |format|
       if @like.save
-        format.html { redirect_to  "/posts", notice: "Like was successfully created." }
+        format.html { redirect_to  root_url, notice: "Like was successfully created." }
         format.json { render :show, status: :created, location: @like }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -20,7 +20,7 @@ class LikesController < ApplicationController
   def destroy
     @like = Like.find(params[:id])
     @like.destroy
-    redirect_to "/posts"
+    redirect_to root_url
    
   end
 
