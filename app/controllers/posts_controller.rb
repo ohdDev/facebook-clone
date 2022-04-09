@@ -6,16 +6,24 @@ class PostsController < ApplicationController
   def index
     @post = Post.new
 
-    @followers = @current_user.followers
-
-    @all_followers=[]
-    @followers.each do |follower|
-        @all_followers.push(follower.id)
+    @curr_user = User.find(current_user.id)
+    @followers = @curr_user.followers
+    @reqs = Friend.where(followee_id: current_user.id, status: "accepted")
+    @reqss = Friend.where(follower_id: current_user.id, status: "accepted")
+    @friendss = []
+    @reqss.each do |req|
+        @friendss.push(User.where(id: req.followee_id).first)
     end
 
+    @friends = []
+    @reqs.each do |req|
+        @friends.push(@followers.where(id: req.follower_id).first)
+    end
+    
 
-     @posts = Post.where('user_id IN (?) OR user_id = ?', @all_followers, current_user.id).order(created_at: :desc).page(params[:page]).per(5)
-     
+
+     @posts = Post.where('user_id IN (?) OR user_id = ? OR user_id = ?',@friends, @friendss, current_user.id).order(created_at: :desc).page(params[:page]).per(10)
+  
 
     # @posts = Post.all
     # @posts = Post.where('user_id IN (?)' , current_user.id).order(created_at: :desc)
@@ -23,6 +31,7 @@ class PostsController < ApplicationController
     # @posts = Post.where('user_id IN (?) OR user_id = ?', current_user.followers, current_user.id).order(:created_at).page(params[:page]).per(5)
    
     @comment = Comment.new
+
   end
 
   # GET /posts/1 or /posts/1.json
