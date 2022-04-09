@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
+ 
 
   # GET /posts or /posts.json
   def index
@@ -13,10 +14,11 @@ class PostsController < ApplicationController
     end
 
 
-     @posts = Post.where('user_id IN (?) OR user_id = ?', @all_followers, current_user.id).order(:created_at).page(params[:page]).per(5)
+     @posts = Post.where('user_id IN (?) OR user_id = ?', @all_followers, current_user.id).order(created_at: :desc).page(params[:page]).per(5)
      
 
     # @posts = Post.all
+    # @posts = Post.where('user_id IN (?)' , current_user.id).order(created_at: :desc)
   #  @posts = Post.where('user_id IN (?)' , current_user.id).order(:created_at)
     # @posts = Post.where('user_id IN (?) OR user_id = ?', current_user.followers, current_user.id).order(:created_at).page(params[:page]).per(5)
    
@@ -49,7 +51,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
+        format.html { redirect_to request.referrer, notice: "Post was successfully created." }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -62,7 +64,8 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to post_url(@post), notice: "Post was successfully updated." }
+        
+        format.html { redirect_to request.referer , notice: "Post was successfully updated." }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit, status: :unprocessable_entity }
