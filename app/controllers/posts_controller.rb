@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     end
 
 
-     @posts = Post.where('user_id IN (?) OR user_id = ?', @all_followers, current_user.id).order(:created_at).page(params[:page]).per(5)
+     @posts = Post.where('user_id IN (?) OR user_id = ?', @all_followers, current_user.id).order(created_at: :desc).page(params[:page]).per(5)
      
 
     # @posts = Post.all
