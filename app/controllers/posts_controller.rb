@@ -1,12 +1,37 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
+ 
 
   # GET /posts or /posts.json
   def index
     @post = Post.new
+
+    @curr_user = User.find(current_user.id)
+    @followers = @curr_user.followers
+    @reqs = Friend.where(followee_id: current_user.id, status: "accepted")
+    @reqss = Friend.where(follower_id: current_user.id, status: "accepted")
+    @friendss = []
+    @reqss.each do |req|
+        @friendss.push(User.where(id: req.followee_id).first)
+    end
+
+    @friends = []
+    @reqs.each do |req|
+        @friends.push(@followers.where(id: req.follower_id).first)
+    end
+    
+
+
+     @posts = Post.where('user_id IN (?) OR user_id = ? OR user_id = ?',@friends, @friendss, current_user.id).order(created_at: :desc).page(params[:page]).per(10)
+  
+
     # @posts = Post.all
-    @posts = Post.where('user_id IN (?)' , current_user.id).order(:created_at)
+    # @posts = Post.where('user_id IN (?)' , current_user.id).order(created_at: :desc)
+  #  @posts = Post.where('user_id IN (?)' , current_user.id).order(:created_at)
+    # @posts = Post.where('user_id IN (?) OR user_id = ?', current_user.followers, current_user.id).order(:created_at).page(params[:page]).per(5)
+   
     @comment = Comment.new
+
   end
 
   # GET /posts/1 or /posts/1.json
@@ -35,7 +60,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
+        format.html { redirect_to request.referrer, notice: "Post was successfully created." }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -48,7 +73,8 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to post_url(@post), notice: "Post was successfully updated." }
+        
+        format.html { redirect_to request.referer , notice: "Post was successfully updated." }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit, status: :unprocessable_entity }

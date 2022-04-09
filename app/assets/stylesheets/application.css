@@ -192,11 +192,11 @@ body{
 }
 .actions1 .SignUp-btn1{
     margin-top: 8px;
-    margin-left: 50px;
+    margin-left: 76px;
     width: 100%;
     background-color: #37CF32;
     color: #ffffff;
-    padding: 10px 60px;
+    padding: 10px 30px;
     font-size: 18px;
     font-weight: 600;
     border-radius: 5px;
@@ -236,6 +236,11 @@ body{
     margin-top: 20px;
     cursor: pointer;
 }
+
+.form1 .forg{
+    margin-left: 75px;
+}
+
 .Sign-in-fo{
     transform: translate(-60%,100%);
     width: 1700px;
@@ -456,22 +461,38 @@ footer a:hover{
     margin: 0;
     display: grid; */
 
- /* body {
+.postss {
     margin: 0px;
     padding: 0px;
-    display: grid; */
+    display: grid;
+      
+    grid-template-columns: 400px 600px 400px 400px;  
+}
+.deletee {
+  /* Green */
+ border: none;
+ color: black;
+ background-color: white;
+
+
+ font-size: 10px;
+  cursor: pointer;
+  position: absolute;
+  right: 520px;
+  top: 133px;
+}
 
     /* grid-template-columns: 22% 33% 25% 20%; */
-    /* grid-template-columns: 22% 33% 25% 20%; */
-    /* grid-template-columns: 260px 500px 320px 255px; */
-    /* grid-template-columns: 300px 450px 342px 273px; */
+     /* grid-template-columns: 22% 33% 25% 20%;  */
+    /* grid-template-columns: 260px 500px 320px 255px;  */
+   /* grid-template-columns: 300px 450px 342px 273px;  */
     /* grid-template-rows: 24px auto;
     font-family: 'Roboto', sans-serif;
     /* background-color: rgb(233,235,238); */
     /* background-color: #eff2f5 !important;
     font-size: 12px;
   }
-  */
+  
   .navbar {
     background-color: #fff;
     }
