@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+ <div class="page header">
+  <%= link_to groups_path, class:'btn btn-default' do %>
+  All Groups
+  <% end %>
+  <%= link_to edit_group_path(@group), class:'btn btn-primary' do %>
+  Edit
+  <% end %>
+  <h1> Show Group </h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt> Name: </dt>
+  <dt> <%= @group.name %> </dt>
+</dl>
+
+<%= button_to "Destroy this event", @event, method: :delete %>

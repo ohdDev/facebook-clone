@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+
+  resources :groups
   resources :likes
+
   resources :events
   get "/friends/requests" , to: "friends#requests", as: 'friends_requests'
   get "/friends/list" , to: "friends#list", as: 'friends_list'
