@@ -26,6 +26,11 @@ class User < ApplicationRecord
   has_many :events
   has_many :notifications, as: :recipient
 
+
   has_one_attached :picture
+
+
+  has_many :group_users, dependent: :destroy
+  has_many :groups, through: :group_users
 
 end

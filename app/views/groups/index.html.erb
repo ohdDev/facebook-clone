@@ -1,0 +1,48 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="container-fluid">
+      <div class="row">
+        <nav class="col-lg-3 col-md-2 d-none d-md-block bg-white sidebar">
+          <div class="sidebar-sticky">
+          <h3 class="font-weight-bold">Groups</h3>
+            <ul class="nav flex-column">
+
+            
+
+              <li class="nav-item">
+                  <span data-feather="requests"></span>
+                  <a href="/groups/new">Add new group</a>          
+              </li>
+
+              <li class="nav-item">
+                  <span data-feather="list"></span>
+                  <a href="/groups">All groups</a>          
+              </li>
+              </ul>
+          </div>
+        </nav>
+        <main role="main" class="col-md-10 ml-sm-auto col-lg-9 pt-3 px-4 h-100">
+
+<div id="groups">
+  <% @groups.each do |group| %>
+    <%= render group %>
+    <button type="button" class="btn btn-outline-info"> <%= link_to "Show this group", group %> </button>
+    <hr>
+  <% end %>
+</div>
+
+<!-- <p style="color: green"><%= notice %></p>
+
+<h1>Groups</h1>
+
+<div id="groups">
+  <% @groups.each do |group| %>
+    <%= render group %>
+    <p>
+      <%= link_to "Show this group", group %>
+    </p>
+    <hr>
+  <% end %>
+</div>
+
+<%= link_to "New group", new_group_path %> -->
