@@ -34,9 +34,13 @@
   
   <div class="col-3">
   <div class="card">
-  <img src="..." class="card-img-top" alt="...">
+   <% if user.picture.attached?%>
+      <%= image_tag(user.picture, size: "243x243",class:"card-image-top")%>
+    <%else%>
+      <i class="fa-solid fa-circle-user fa-6x"></i>
+    <%end%>
   <div class="card-body">
-    <h5 class="card-title"><p><%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %></p></h5>
+    <h5 class="card-title"><p><%= link_to "#{user.first_name} #{user.last_name}", profile_url(user) %></p></h5>
 
     <%= button_to '+ add friend', { :controller => "friends", 
         :action => "add_friend", 

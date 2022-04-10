@@ -26,4 +26,6 @@ class User < ApplicationRecord
   has_many :events
   has_many :notifications, as: :recipient
 
+  has_one_attached :picture
+
 end
