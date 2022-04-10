@@ -9,7 +9,7 @@
      
       <% usere = User.find(post.user_id) %>
     
-        <%= link_to "#{usere.first_name}", profile_url(current_user), class: "user-name" %>
+        <%= link_to "#{usere.first_name}", profile_url(usere), class: "user-name" %>
       </span>
 
       <%= link_to distance_of_time_in_words(Time.now, post.created_at)+ ' ago', post, class: 'timestamp' %>
@@ -49,16 +49,16 @@
         <% when 1 %>
             <% user = User.find(post.likes.first.user_id) %>
             <strong>
-              <%= link_to "#{user.first_name} #{user.last_name}", user.first_name, class: "user-name" %>
+              <%= link_to "#{user.first_name} #{user.last_name}", profile_url(user), class: "user-name" %>
             </strong>
         <% when 2 %>
           <% post.likes.each_with_index do |like, index| %>
             <% user = User.find(like.user_id) %>
             <strong>
               <% unless index == post.likes.count - 1 %>
-                <%= link_to "#{user.first_name} #{user.last_name}", user.first_name, class: "user-name" %> and
+                <%= link_to "#{user.first_name} #{user.last_name}", profile_url(user), class: "user-name" %> and
               <% else %>
-                <%= link_to "#{user.first_name} #{user.last_name}", user.first_name, class: "user-name" %>
+                <%= link_to "#{user.first_name} #{user.last_name}", profile_url(user), class: "user-name" %>
               <% end %>
             </strong>
 
@@ -67,8 +67,8 @@
           <% user1 = User.find(post.likes.first.user_id) %>
           <% user2 = User.find(post.likes.second.user_id) %>
           <strong>
-            <%= link_to "#{user1.first_name} #{user1.last_name}", user1.first_name, class: "user-name" %>,
-            <%= link_to "#{user2.first_name} #{user2.last_name}", user2.first_name, class: "user-name" %>
+            <%= link_to "#{user1.first_name} #{user1.last_name}", profile_url(user1), class: "user-name" %>,
+            <%= link_to "#{user2.first_name} #{user2.last_name}", profile_url(user2), class: "user-name" %>
               <%= "and " + pluralize(post.likes.count - 2, "other") %>
           </strong>
         <% end %>
@@ -84,7 +84,7 @@
 
         <p class="comment">
           <span class="comment-content">
-             <strong><%= link_to "#{user.first_name} #{user.last_name}", user.first_name, class: "user-name" %></strong> 
+             <strong><%= link_to "#{user.first_name} #{user.last_name}", profile_url(user), class: "user-name" %></strong> 
              <%= comment.content %> 
           </span>
           <% if current_user.id == comment.user_id %>
