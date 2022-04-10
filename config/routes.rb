@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   post "/friends/delete" , to: "friends#delete"
   post "/friends/block" , to: "friends#block"
   post "/friends/add_friend" , to: "friends#add_friend"
+  get '/profiles/:id', to: 'profiles#show_profile', as: 'profile'
+  put '/users/:id/edit', to: 'users#edit', as: 'edit_user_path'
   resources :friends
   resources :comments
   resources :posts

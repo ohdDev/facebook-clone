@@ -1,0 +1,68 @@
+
+<div class="container">
+<div class="row justify-content-center">   
+<div class="col-lg-8"> 
+
+
+
+
+ <%= link_to "back", "/profiles/#{current_user.id}" , class:"btn btn-outline-secondary mb-3" %>
+
+
+<h3>Edit your personal info</h3>
+ 
+  <%= form_for(@user, html: {multipart: true, method: :put, 'data-turbo' => "false"}) do |f| %>
+
+
+  <%# <%= link_to(current_user.first_name) %> 
+ <div class="form-group">
+    <%= f.label t('pages.Users.forms.picture', default: 'Picture'), style: "display: block" %>
+    <%= f.file_field :picture, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :first_name, class: "classy" , placeholder: t('Pages.sign_up_page.first_name', default: 'First Name') %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :last_name, class: "classy" , placeholder: t('Pages.sign_up_page.last_name', default: 'Last Name') %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+   <div class="field">
+   <% if @minimum_password_length %>
+    <% end %> 
+    <%= f.password_field :password, class: "classy" , autocomplete: "new-password",placeholder: t('Pages.sign_up_page.password_desc', default: 'Password (6 characters minimum)')%> 
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password_confirmation, class: "classy" , autocomplete: "new-password",placeholder: t('Pages.sign_up_page.password_conf', default: 'Password Confirmation')%>
+  </div>
+
+  <div class="field">
+    <%= f.date_select :birthday, {order: [:month, :day, :year], 
+    selected: { day: Date.today.day, month: Date.today.month, year: Date.today.year },
+    start_year: Date.today.year, end_year: Date.today.year - 100}, {required: true} %>
+  </div>
+
+  <div class="button-feild">
+    <%= f.radio_button :gender, true %>
+    <%= f.label :gender, t('Pages.sign_up_page.gender.male', default: 'Male'), :value => "male"  %>
+    <%= f.radio_button :gender, false %>
+    <%= f.label :gender, t('Pages.sign_up_page.gender.female', default: 'Female'), :value => "female" %>
+  </div>
+  
+ 
+
+  
+  <%= f.submit "Post" %>
+<% end %>
+
+
+</div>
+</div>
+</div>

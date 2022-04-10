@@ -7,7 +7,7 @@
 
   <span>
    
-    <%= link_to "#{@post.user.first_name}", @post.user.first_name, class: "user-name" %>
+    <%= link_to "#{@post.user.first_name}", profile_url(@post.user), class: "user-name" %>
   </span>
 
   <%= link_to distance_of_time_in_words(Time.now, @post.created_at)+ ' ago', @post, class: 'timestamp' %>
@@ -47,7 +47,7 @@
 
       <p class="comment">
         <span class="comment-content">
-          <strong><%= link_to "#{user.first_name} #{user.last_name}", user.first_name, class: "user-name" %></strong> <%= comment.content %>
+          <strong><%= link_to "#{user.first_name} #{user.last_name}", profile_url(user), class: "user-name" %></strong> <%= comment.content %>
         </span>
         <% if current_user.id == comment.user_id %>
           <span class="edit-delete-comment">
