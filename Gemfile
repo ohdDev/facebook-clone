@@ -77,3 +77,13 @@ group :test do
 end
 
 gem "noticed", "~> 1.5"
+
+group :test do
+  gem 'faker',                        '~> 1.8', '>= 1.8.7'
+  gem 'factory_bot_rails',            '~> 4.8', '>= 4.8.2'
+  gem 'rails-controller-testing',     '~> 1.0.2'
+  gem 'rspec-rails',                  '~> 4.0.1'
+  gem 'shoulda',                      '~> 3.5'
+  gem 'shoulda-callback-matchers',    '~> 1.1', '>= 1.1.3'
+  gem 'simplecov',                    '~> 0.15.1',              require: false
+end

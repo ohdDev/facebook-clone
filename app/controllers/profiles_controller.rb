@@ -22,7 +22,6 @@ class ProfilesController < ApplicationController
       end
       
       @user_posts = Post.where(user_id: params[:id]).order(created_at: :desc).page(params[:page]).per(10)
-      p "$$$$$$$", @user_posts.count
        @posts = Post.where('user_id IN (?) OR user_id = ? OR user_id = ?',@friends, @friendss, @curr_user.id).order(created_at: :desc).page(params[:page]).per(10)
     
       @comment = Comment.new
