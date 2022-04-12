@@ -1,8 +1,10 @@
 class ApplicationController < ActionController::Base
 
     around_action :switch_locale
+    
 
     before_action :authenticate_user!
+
     before_action :configure_permitted_parameters, if: :devise_controller?
     before_action :set_notifications, if: :current_user
     
@@ -14,6 +16,9 @@ class ApplicationController < ActionController::Base
         locale = params[:locale] || I18n.default_locale
         I18n.with_locale(locale, &action)
    end
+
+
+
     def after_sign_out_path_for(resource)
         new_user_session_path
       end

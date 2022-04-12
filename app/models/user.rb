@@ -33,4 +33,13 @@ class User < ApplicationRecord
   has_many :group_users, dependent: :destroy
   has_many :groups, through: :group_users
 
+  has_one :setting
+  after_create :build_setting
+
+  
+  private
+    def build_setting
+      Setting.create(user_id: self.id)
+    end
+
 end
