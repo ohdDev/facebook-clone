@@ -2,6 +2,8 @@ class Comment < ApplicationRecord
     belongs_to :user
     belongs_to :post
 
+
+    validates :content, presence: true  
   after_create_commit :notify_recipient
   before_destroy :cleanup_notifications
   has_noticed_notifications model_name: 'Notification'

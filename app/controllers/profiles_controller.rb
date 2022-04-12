@@ -30,7 +30,10 @@ class ProfilesController < ApplicationController
       
       @user_profile = User.find_by(id: params[:id])
       @user_posts = Post.where(user_id: params[:id]).order(created_at: :desc).page(params[:page]).per(10)
+<<<<<<< HEAD
+=======
     
+>>>>>>> f7e7ad7ba3c67cac8f0defafc2f9b5dce2a2ad02
        @posts = Post.where('user_id IN (?) OR user_id = ? OR user_id = ?',@friends, @friendss, @curr_user.id).order(created_at: :desc).page(params[:page]).per(10)
     
       @comment = Comment.new
