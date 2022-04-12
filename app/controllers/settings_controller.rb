@@ -66,7 +66,7 @@ class SettingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def setting_params
-      params.require(:setting).permit(:post_privacy,:friends_list_privacy, :user_id)
+      params.require(:setting).permit(:post_privacy,:friends_list_privacy, :user_id, :language)
     end
 
 

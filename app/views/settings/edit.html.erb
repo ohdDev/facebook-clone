@@ -60,7 +60,28 @@
 
   
   </div>
-  <div class="tab-pane" id="language" role="tabpanel" aria-labelledby="language-tab">language</div>
+  <div class="tab-pane" id="language" role="tabpanel" aria-labelledby="language-tab">
+  
+  <h3>Language</h3>
+  <hr>
+
+
+<div class="dropdown">
+  <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   Choose Language
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <%= link_to "English", { :locale=>'en' },{class: "dropdown-item"} %>
+    <%= link_to "عربي", { :locale=>'ar' },{class: "dropdown-item"} %>
+  </div>
+</div>
+  
+  </div>
+
+  
+
+
+
 </div>
   
    </div>
