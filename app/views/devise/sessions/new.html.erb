@@ -1,0 +1,40 @@
+<%# <h2>Log in</h2> %>
+<div class="knowAbout">
+    <img class="image" src="https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg" alt="facebook">
+    <h2 class="paraToKnow"> <%= t('Pages.desc_of_website', default: 'Connect with friends and the world around you on Facebook.') %> </h2>
+</div>
+
+<%= form_for(resource, as: resource_name, html: {'data-turbo' => "false"}, url: session_path(resource_name)) do |f| %>
+
+<body style="background-color: #F4F4F2;">
+
+<div class="form1">
+
+  <div class="field1">
+    <%= f.email_field :email, placeholder:t('Pages.sign_in_page.email', default: 'Email') , class: "classy1" , autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field1">
+    <%= f.password_field :password, placeholder: t('Pages.sign_in_page.password', default: 'Password'), class: "classy1" , autocomplete: "current-password" %>
+  </div>
+
+  <div class="actions1">
+    <%= f.submit t('Pages.buttons.login_btn', default: 'Login'), class: "SignIn-btn1" %>
+  </div>
+
+  <%= link_to t('Pages.sign_in_page.forget_password', default: 'Fogret password?'), new_user_password_path, class: 'forg' %>
+  
+  <div class="lineBreak1"></div>
+  
+  <div class="actions1">
+     <%= link_to t('Pages.buttons.sign_up_btn', default: 'Sign Up'), new_user_registration_path, class: "SignUp-btn1" %>
+  </div>
+<% end %>
+</form>
+<div>
+  <footer class="Sign-in-fo">
+      <p><a><%= link_to 'English (UK)', url_for(locale: :en) %></a> | <a><%= link_to 'العربية', url_for(locale: :ar) %></a> </p>
+      <br>
+      <p id="ourTeam">© 2022 Tech Phantoms</p><br>
+  </footer>
+</body>

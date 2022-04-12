@@ -1,0 +1,70 @@
+<%# <h2>Sign up</h2> %>
+
+<div class="knowAbout">
+    <img class="image" src="https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg" alt="facebook">
+    <h2 class="paraToKnow"> <%= t('Pages.desc_of_website', default: 'Connect with friends and the world around you on Facebook.') %> </h2>
+</div>
+
+
+  <%= form_for(resource, as: resource_name, html: {'data-turbo' => "false"}, url: registration_path(resource_name)) do |f| %>
+    <div class="errorMes">
+      <%= render "devise/shared/error_messages", resource: resource %>
+    </div>
+
+<body style="background-color: #F4F4F2;">
+ 
+<div class="SignInForm">
+
+  <div class="field">
+    <%= f.text_field :first_name, class: "classy" , placeholder: t('Pages.sign_up_page.first_name', default: 'First Name') %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :last_name, class: "classy" , placeholder: t('Pages.sign_up_page.last_name', default: 'Last Name') %>
+  </div>
+
+  <div class="field">
+    <%= f.email_field :email, class: "classy" , autofocus: true, autocomplete: "email", placeholder: t('Pages.sign_up_page.email', default: 'Email')%>
+  </div>
+
+  <div class="field">
+   <% if @minimum_password_length %>
+    <% end %> 
+    <%= f.password_field :password, class: "classy" , autocomplete: "new-password",placeholder: t('Pages.sign_up_page.password_desc', default: 'Password (6 characters minimum)')%> 
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password_confirmation, class: "classy" , autocomplete: "new-password",placeholder: t('Pages.sign_up_page.password_conf', default: 'Password Confirmation')%>
+  </div>
+
+  <div class="field">
+    <%= f.date_select :birthday, {order: [:month, :day, :year], 
+    selected: { day: Date.today.day, month: Date.today.month, year: Date.today.year },
+    start_year: Date.today.year, end_year: Date.today.year - 100}, {required: true} %>
+  </div>
+
+  <div class="button-feild">
+    <%= f.radio_button :gender, true %>
+    <%= f.label :gender, t('Pages.sign_up_page.gender.male', default: 'Male'), :value => "male"  %>
+    <%= f.radio_button :gender, false %>
+    <%= f.label :gender, t('Pages.sign_up_page.gender.female', default: 'Female'), :value => "female" %>
+  </div>
+
+  <div class="actions">
+     <%= f.submit t('Pages.buttons.sign_up_btn', default: 'Sign Up'), class: "Sign-up-btn" %>
+  </div>
+  <div class="lineBreak"></div>
+
+  <div class="actions">
+     <%= link_to t('Pages.buttons.login_btn', default: 'Login'), new_user_session_path, class: "Sign-in-btn" %>
+  </div>
+<% end %>
+<div>
+
+  <footer class="Sign-up-fo">
+      <p><a><%= link_to 'English (UK)', url_for(locale: :en) %></a> | <a><%= link_to 'العربية', url_for(locale: :ar) %></a> </p>
+      <br>
+      <p>© 2022 Tech Phantoms</p><br>
+  </footer>
+  
+</body>
