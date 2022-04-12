@@ -1,20 +1,5 @@
-<style>
-.button {
-   /* Green */
-  border: none;
-  color: black;
-  background-color: white;
 
- 
-  font-size: 10px;
-   cursor: pointer;
-   position: relative;
-    right: 750px;
-   
-   
-  
-}
-</style>
+<div class="postss">
 <div class="posts">
 <div class = "new-post">
 
@@ -38,6 +23,7 @@
 
 
 <% @posts.each do |post| %>
+
   <div class="post">
     <p class="post-header">
       
@@ -65,9 +51,51 @@
     </p>
 
     <div class="like-comment-buttons">
+      <% like = post.likes.where("user_id = ?", current_user.id) %>
+      <% if like.empty? %>
+      <%= button_to likes_path(like: {post_id: post.id} ), method: :post, class: "like-button" do %>
+        <%= fa_icon('thumbs-up', type: :regular, text: "Like") %>
+      <% end %>
+      <% else %>
+        <%= button_to like.first, method: :delete, class: "like-button unlike" do %>
+          <%= fa_icon('thumbs-up', type: :solid, text: "Like") %>
+        <% end %>
+      <% end %>
       <button class="comment-button"><i class="far fa-comment-alt"></i> Comment</button>
     </div>
+    <% if post.likes.count > 0 %>
 
+      <p class="liked-by">
+        <%= fa_icon('thumbs-up', type: :solid, style: 'color:rgb(66,103,178)') %>
+        <% case post.likes.count %>
+        <% when 1 %>
+            <% user = User.find(post.likes.first.user_id) %>
+            <strong>
+              <%= link_to "#{user.first_name} #{user.last_name}", user.first_name, class: "user-name" %>
+            </strong>
+        <% when 2 %>
+          <% post.likes.each_with_index do |like, index| %>
+            <% user = User.find(like.user_id) %>
+            <strong>
+              <% unless index == post.likes.count - 1 %>
+                <%= link_to "#{user.first_name} #{user.last_name}", user.first_name, class: "user-name" %> and
+              <% else %>
+                <%= link_to "#{user.first_name} #{user.last_name}", user.first_name, class: "user-name" %>
+              <% end %>
+            </strong>
+
+          <% end %>
+        <% else %>
+          <% user1 = User.find(post.likes.first.user_id) %>
+          <% user2 = User.find(post.likes.second.user_id) %>
+          <strong>
+            <%= link_to "#{user1.first_name} #{user1.last_name}", user1.first_name, class: "user-name" %>,
+            <%= link_to "#{user2.first_name} #{user2.last_name}", user2.first_name, class: "user-name" %>
+              <%= "and " + pluralize(post.likes.count - 2, "other") %>
+          </strong>
+        <% end %>
+  </p>
+    <% end %>
  <br>
     <% if post.comments.count > 0 %>
     <div class="all-comments">
@@ -104,4 +132,5 @@
   </div>
 <% end %>
 
+</div>
 </div>

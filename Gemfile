@@ -7,6 +7,7 @@ ruby "3.0.0"
 gem "rails", "~> 7.0.2", ">= 7.0.2.3"
 
 gem 'font_awesome5_rails'
+gem 'kaminari'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -47,6 +48,7 @@ gem "bootsnap", require: false
 
 # Add Gem Devise
 gem 'devise', '~> 4.8', '>= 4.8.1'
+gem 'rails-i18n'
 
 # Use Sass to process CSS
 # gem "sassc-rails"

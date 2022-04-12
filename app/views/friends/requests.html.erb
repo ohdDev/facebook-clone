@@ -1,0 +1,75 @@
+ <div class="container-fluid">
+      <div class="row">
+        <nav class="col-lg-3 col-md-2 d-none d-md-block bg-white sidebar">
+          <div class="sidebar-sticky p-3">
+    
+          <a href="/friends"><i class="fa-solid fa-arrow-left"></i></a>
+           <h3 class="font-weight-bold d-inline pl-3">Friend Requests</h3>
+   
+           <div class="dropdown-divider"></div>
+
+           <span><%= Friend.where(followee_id: current_user.id).where(status: "pending").count %> Friend Requests</span>
+
+            <ul class="nav flex-column">
+             <% @friends.each do |friend| %>
+             <% if Friend.where(follower_id: friend.id).where(followee_id: current_user.id).first.status == "pending"%>
+              <li class="nav-item">
+             
+              <div class="row">
+                <div class="col-2">
+                  <i class="fa-solid fa-circle-user fa-3x"></i>
+                </div>
+                <div class="col-10">
+
+                <div class="row">
+                  <div class="col-9 d-inline">
+                     <p class="d-inline"><%= friend.first_name %></p>
+                    </div>
+                  <div class="col-3 d-inline">
+                    <p class="d-inline text-muted"><%= time_ago_converter time_ago_in_words(Friend.where(follower_id: friend.id).where(followee_id: current_user.id).first.created_at)  %></p>
+                 </div>
+                </div>
+
+                 
+                <div class="req-buttons">
+                <div class="row justify-content-center">
+                <div class="col d-inline">
+                <%= button_to 'Confirm', { :action => "confirm", 
+                :controller => "friends",
+                :id => Friend.where(follower_id: friend.id).where(followee_id: current_user.id).first.id}, 
+                {:class => "btn btn-primary w-100"} %>
+                </div>
+
+                <div class="col d-inline">
+                <%= button_to 'Delete', { :action => "delete", 
+                :controller => "friends", 
+                :id => Friend.where(follower_id: friend.id).where(followee_id: current_user.id).first.id},
+                 {:class => "btn btn-light w-100" } %>
+                </div>
+                </div>
+                </div>
+
+
+      
+                </div>
+              </div>
+                
+              </li>
+                <% end %>
+             <% end %>
+
+            </ul>
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-10 ml-sm-auto col-lg-9 pt-3 px-4 h-100">
+         
+
+<h1 class="text-center">The Friends of this user are</h1>
+
+
+ </main>
+
+      </div>
+
+    </div>
