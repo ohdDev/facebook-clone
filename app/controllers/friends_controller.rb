@@ -3,13 +3,19 @@ class FriendsController < ApplicationController
     def index
         @curr_user = User.find(current_user.id)
         @followers = @curr_user.followers
+        @followees = @curr_user.followees
 
         @all_followers=[]
         @followers.each do |follower|
             @all_followers.push(follower.id)
         end
 
-        @users = User.where.not(id: @curr_user.id).where.not(id: @all_followers)
+        @all_followees=[]
+        @followees.each do |followee|
+            @all_followees.push(followee.id)
+        end
+
+        @users = User.where.not(id: @curr_user.id).where.not(id: @all_followers).where.not(id: @all_followees)
 
         # @followers.each do |follower|
         #     @users = User.where.not(id: follower.id).where.not(id: @curr_user.id)
@@ -49,12 +55,28 @@ class FriendsController < ApplicationController
     def list
         @curr_user = User.find(current_user.id)
         @followers = @curr_user.followers
-        @reqs = Friend.where(followee_id: current_user.id, status: "accepted")
+        # @reqs = Friend.where(followee_id: current_user.id, status: "accepted")
 
+        # @friends = []
+        # @reqs.each do |req|
+        #     @friends.push(@followers.where(id: req.follower_id).first)
+        # end
+
+        @reqs = Friend.where(follower_id: @curr_user.id).or(Friend.where(followee_id: @curr_user.id))
+      
+        @accepted_reqs = @reqs.where(status: "accepted") 
+        p "Reqs++++", @accepted_reqs.each {|a| [a.id]}
         @friends = []
-        @reqs.each do |req|
-            @friends.push(@followers.where(id: req.follower_id).first)
+        @accepted_reqs.each do |req|
+          if @curr_user.id == req.followee_id
+            @friends.push(User.find_by(id: req.follower_id))
+          elsif @curr_user.id == req.follower_id
+            @friends.push(User.find_by(id: req.followee_id))
+          end
         end
+
+
+        
     
     end
 
@@ -69,7 +91,6 @@ class FriendsController < ApplicationController
     def add_friend
         @curr_user = User.find(current_user.id)
         @friend = Friend.create(follower_id: params[:follower_id],followee_id: params[:followee_id])
-        p "$$$$$$$$$$ ",@friend
 
         # @friend = Friend.new(:follower_id => @curr_user.id ,
         #     :followee_id => Friend.find(params[:followee_id]))

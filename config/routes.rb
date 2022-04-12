@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   post "/friends/add_friend" , to: "friends#add_friend"
   get '/profiles/:id', to: 'profiles#show_profile', as: 'profile'
   put '/users/:id/edit', to: 'users#edit', as: 'edit_user_path'
+  get '/settings/:id/edit', to: 'settings#edit', as: 'edit_setting_path'
+  put '/settings/:id', to: 'settings#update', as: 'setting'
   resources :friends
   resources :comments
   resources :posts
@@ -24,5 +26,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  
   root to: "home#index"
+
 end

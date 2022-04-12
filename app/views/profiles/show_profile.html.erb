@@ -37,16 +37,29 @@
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="home-tab">
 
-   <%= render "posts/user_post" %>
+  <% if (@post_privacy == "only me" && @user_profile.id != current_user.id) ||
+    (@post_privacy == "friends" && @friends.any?{|friend| friend.id != current_user.id } ) %>
+      <p class="p-5 text-center"> 
+      <i class="fa-solid fa-lock"></i>
+      Posts of <%= @user_profile.first_name %> is Private 
+      </p>
+   <% else %>
+    <%= render "posts/user_post" %>
+   <% end %>
 
   </div>
   <div class="tab-pane fade" id="friends" role="tabpanel" aria-labelledby="profile-tab">
 
+ <% if (@friends_list_privacy == "only me" && @user_profile.id != current_user.id) ||
+    (@friends_list_privacy == "friends" && @friends.any?{|friend| friend.id != current_user.id } ) %>
+      <p class="p-5 text-center"> 
+      <i class="fa-solid fa-lock"></i>
+      Friends list of <%= @user_profile.first_name %> is Private 
+      </p>
+   <% else %>
+
 <% if @friends.length > 0 %>  
-
-  
 <% @friends.each do |friend| %>
-
 
   <div class="card">
   <div class="card-body">
@@ -59,8 +72,6 @@
 
     <h5><p><%= link_to "#{friend.first_name} #{friend.last_name}", profile_url(friend) %></p></h5>
 
-   
-
   </div>
 </div>
 
@@ -71,6 +82,12 @@
   <% else %>
   <p class="p-3 text-center"><%= "<b>#{@user.first_name}</b> dosn't have friends".html_safe %></p>
   <%end%>
+
+
+   <% end %>
+
+
+
 
 
 
